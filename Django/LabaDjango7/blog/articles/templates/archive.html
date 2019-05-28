@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a> <a href="{% url 'signup' %}">register</a>
+{% endif %}
+{% endblock %}
+<title> Архив всех статей </title>
+<body>
+    <div class="header">
+        {% load static %}
+        <script src="{% static 'js/jquery.js'%}"></script>
+        <script src="{% static 'js/helloworld.js' %}"></script>
+        <script src="{% static 'js/fold-post.js' %}"></script>
+        <img src="{% static 'img/dpb-logo.png' %}">
+        <h2 class="exit"><a href="/article/new">Создать</a></h2>
+        <link rel="stylesheet" href="{% static 'css/article.css' %}">
+    </div>
+    <div class="archive">
+        {% for post in posts %}
+            <div class="one-post">
+                <h2 class="post-title">
+                    <a href="/article/{{ post.id }}">{{ post.title }}</a>
+                </h2>
+                <script src="{% static 'js/fold-post.js' %}"></script>
+                <button class="fold-button" type="button">свернуть</button>
+                <div class="fold-box"></div>
+                <div class="articlein">
+                    <div class="article-info">
+                        <div class="article-author">{{ post.author.username }}</div>
+                        <div class="article-created-date">{{ post.created_date }}</div>
+                    </div>
+                    <p class="article-text">{{ post.get_excerpt }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>

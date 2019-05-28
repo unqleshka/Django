@@ -1,0 +1,51 @@
+body {
+    background: #1abc9c;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #ffffff;    
+}
+.header img {
+    display: block;
+    width: 318px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.exit {
+    color: #ffffff;
+    width: 1150px;
+    text-align: right;
+}
+.archive {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.post-title a{
+    color: #ffffff;
+    width: 90%;
+    float: left;
+}
+.fold-button {
+    text-align: right;
+}
+.article-author {
+    width: 50%;
+    float: left;
+}
+.article-created-date {
+    text-align: right;
+}
+.article {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.one-post-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: black;
+    z-index: -1; /* это свойство «отодвигает» элемент на задний план */
+    opacity: 0
+}
